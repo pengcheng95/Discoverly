@@ -1,46 +1,63 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { changeText, changeHeading } from '../actions'
+import { changeText, changeHeading, changePoem } from '../actions'
 import { bindActionCreators } from 'redux'
 import * as ChangeActions from '../actions'
+import axios from 'axios'
 
-// export default class App extends React.Component {
+class App extends React.Component {
 
-//   constructor({text, header}) {
-//     super({text, header});
-//     this.state = {
-//     }
-//     console.log(this);
-//   }
+  constructor(props) {
+    super(props);
+    this.state = {
+      
+    }
 
-//   render() {
-//     return (
-//       <div>
-//         <p> Testing </p>
-//       </div>
+    console.log(this);
+  }
 
-//     )
-//   }
-// }
+  render() {
+    return (
+      <div>
+        <p> Testing </p>
+      </div>
 
-const App = ({text, heading, actions}) => (
-  <div>
-    <p> test </p>
-    {heading}
-    {text.text}
-    <button onClick={() => {
-      console.log(text);
-      actions.changeText({text: 'changingText'});
-    }}> Click </button>
-  </div>
-  )
+    )
+  }
+}
+
+// const App = ({text, heading, poem, actions}) => (
+//   <div>
+//     <p> test </p>
+//     {heading}
+//     {text.text}
+//     {poem.title}
+//     <button onClick={() => {
+//       axios.get('/test')
+//         .then((res) => {
+//           console.log(res.data);
+//           var temp = {
+//             title: res.data,
+//             author: '',
+//             lines: '',
+//             vote: null,
+//             poemId: -1,
+//             bookmarked: false
+//           }
+//           actions.changePoem(temp);
+//         })
+//       // actions.changeText({text: 'changingText'});
+//     }}> Click </button>
+//   </div>
+//   )
 
 
 const getState = (state) => {
   console.log(state);
   return ({
     text: state.text,
-    heading: state.heading
+    heading: state.heading,
+    poem: state.poem
   })
 }
 
