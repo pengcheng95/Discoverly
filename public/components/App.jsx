@@ -4,6 +4,14 @@ import { changeText, changeHeading, changePoem } from '../actions'
 import { bindActionCreators } from 'redux'
 import * as ChangeActions from '../actions'
 import axios from 'axios'
+import {
+  HashRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+import Home from './Home.jsx'
+import Discover from './Discover.jsx'
+import Profile from './Profile.jsx'
 
 class App extends React.Component {
 
@@ -18,9 +26,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <p> Testing </p>
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home}/>
+          <Route exact path='/discover' component={Discover}/>
+          <Route exact path ='/profile' component={Profile}/>
+        </div>
+      </Router>
 
     )
   }

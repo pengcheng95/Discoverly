@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 
 var userSchema = mongoose.Schema({
 	username: String,
+	userId: String,
   aPoemRead: Array,
   bookmarked: Array
 

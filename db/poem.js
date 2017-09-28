@@ -5,7 +5,8 @@ const autoIncrement = require('mongoose-auto-increment')
 var aPoemSchema = mongoose.Schema({
 	title: String,
   author: String,
-  lines: Array
+  lines: Array,
+  comments: Array
 
 })
 

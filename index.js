@@ -6,6 +6,9 @@ const axios = require('axios')
 const Poem = require('./db/poem')
 const Users = require('./db/user')
 const api = require('./api')
+var session = require('express-session');
+const passport = require('passport'), 
+FacebookStrategy = require('passport-facebook').Strategy;
 
 
 const app = express();
@@ -15,12 +18,61 @@ app.use(parser.urlencoded( { extended: false } ));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var allPoems = [];
-for (var i = 0; i < 3118; i++) {
-	allPoems.push(i);
-}
 
-app.use('/api', api);
+
+
+app.use(require('express-session')({
+  secret: 'travel'
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new FacebookStrategy({
+    clientID: 503497313317767,
+    clientSecret: '3d91139ff4bb64f4e821a75b5a50f7f2',
+    callbackURL: 'http://localhost:3000/auth/facebook/callback'
+  },
+  function(accessToken, refreshToken, profile, done) {
+    // console.log(profile);
+   	done(null, profile);
+  }
+));
+
+passport.serializeUser(function(profile, done) {
+  done(null, profile);
+});
+
+passport.deserializeUser(function(profile, done) {
+  done(null, profile);
+});
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {
+    var sessData = req.session.passport;
+    console.log(sessData);
+    Users.findOne( {userId: sessData.user.id}, function(err, user) {
+    	if (err) console.error(err)
+    	if(!user) {
+    		var newUser = new Users({
+    				username: sessData.user.displayName,
+						userId: sessData.user.id,
+					  aPoemRead: [],
+					  bookmarked: []
+    		})
+    		newUser.save(function(err) {
+    			if (err) console.error(err);
+    		})
+    	}
+    } )
+  	res.redirect('/#/profile')
+  });
+
+// app.get('/discover', (req, res) => {
+// 	console.log('testing');
+// 	res.render('/discover');
+// })
 
 
 // axios.get('http://poetrydb.org/author')
@@ -43,11 +95,7 @@ app.use('/api', api);
 // 		})
 // 	})
 
-
-
-app.get('/test', function(req, res) {
-	res.send('new Title');
-})
+app.use('/api', api);
 
 const port = 3000;
 

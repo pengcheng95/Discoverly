@@ -1,10 +1,11 @@
 const poem = (state = {
-  title: 'Testing Poem',
+  title: '',
   author: '',
   lines: [],
   vote: null,
   poemId: -1,
-  bookmarked: false
+  bookmarked: false,
+  comments: []
 }, action) => {
   switch (action.type) {
     case 'CHANGE_POEM':
@@ -14,8 +15,9 @@ const poem = (state = {
         author: action.obj.author,
         lines: action.obj.lines,
         vote: null,
-        poemId: -1,
-        bookmarked: false
+        poemId: action.obj.poemId,
+        bookmarked: false,
+        comments: action.obj.comments
       }
     default:
       return state
