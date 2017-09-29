@@ -12,6 +12,8 @@ import {
 import Home from './Home.jsx'
 import Discover from './Discover.jsx'
 import Profile from './Profile.jsx'
+import Poem from './Poem.jsx'
+import CreatePoem from './CreatePoem.jsx'
 
 class App extends React.Component {
 
@@ -31,6 +33,8 @@ class App extends React.Component {
           <Route exact path="/" component={Home}/>
           <Route exact path='/discover' component={Discover}/>
           <Route exact path ='/profile' component={Profile}/>
+          <Route path="/poem/:id" component={Poem}/>
+          <Route exact path='/createPoem' component={CreatePoem}/>
         </div>
       </Router>
 

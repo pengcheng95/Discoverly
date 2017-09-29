@@ -43,6 +43,39 @@ router.post('/addBookmark', function(req, res) {
 	})
 })
 
+router.post('/poem', function(req, res) {
+	console.log(req.body);
+	Poem.findOne( { 'poemId' : req.body.poemId }, function(err, poem) {
+		if (err) console.error(err)
+		res.send(poem);
+	} )
+})
+
+router.post('/newComment', function(req, res) {
+	console.log(req.body);
+	var sessData = req.session.passport;
+	console.log(sessData);
+	Poem.findOne( {poemId: req.body.poemId}, function(err, poem) {
+		var comments = poem.comments;
+		var newComment = {
+			comment: req.body.newComment,
+			username: sessData.user.displayName,
+			userId: sessData.user.id
+
+		}
+		comments.push(newComment);
+		poem.comments = comments;
+		poem.save(function(err) {
+			if (err) console.error(err)
+			res.send('good');
+		})
+	} )
+})
+
+router.post('/newUserPoem', function(req, res) {
+	console.log(req.body);
+})
+
 
 
 module.exports = router;

@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ChangeActions from '../actions'
 import axios from 'axios'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 class Profile extends React.Component {
 
@@ -29,9 +34,11 @@ class Profile extends React.Component {
   render() {
 
     const bookmarked = this.props.user.bookmarked.map((bookmark, i) => {
+      console.log(bookmark);
+      var poemIdLink = "/poem/" + bookmark.poemId;
       return (
         <div>
-          <p> {bookmark.title} </p>
+          <Link to={poemIdLink}>{bookmark.title}</Link>
           <p> {bookmark.author} </p>
         </div>
         )
