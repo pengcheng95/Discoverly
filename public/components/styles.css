@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto');
+
+.topbar ul {
+    list-style-type: none;
+    margin: 12px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.topbar li {
+    float: right;
+    margin-left: 24px;
+    font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+}
+
+#leftLi {
+	float: left;
+}
+
+
+.displayBody {
+	padding: 3%; 
+}
+
+#homeImg {
+	height: 500px;
+	width: auto;
+	margin-left: 200px;
+}
+
+#homeDisplay {
+	text-align: center;
+	line-height: .7;
+}
+
+.discoverDisplay {
+	text-align: center;
+	line-height: .8;
+}
+
+.discoverDisplay button {
+	margin-right: 10px;
+}
+
+.discoverDisplay button:hover {
+	text-decoration: underline;
+}
+
+.discoverDisplay h5 {
+	 margin-top:20px;
+  	margin-bottom:0px;
+}
+
+#lines {
+	padding-top: 0;
+	margin-top: 0;
+	display: inline-block; 
+	text-align: left
+}
+
+.bookmarked {
+	line-height: .5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto', sans-serif;
+}
+
+p {
+	font-family: 'Libre Baskerville', serif;
+	font-size: 1em;
+}
+
+button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.displayBody button:hover {
+	text-decoration: underline;
+}
+
+a {
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+
+
+
+

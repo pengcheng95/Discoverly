@@ -62,14 +62,19 @@ class Discover extends React.Component {
         )
     })
     return (
-      <div>
-        <h3> Discover </h3>
+      <div className="discoverDisplay">
 
-        <h5> {this.props.poem.title} </h5>
-        <h5> {this.props.poem.author} </h5>
-        <p> {lines} </p>
-        <button onClick = {this.getRandomPoem}> Next </button>
+        <div className="poem">
+        <h2> {this.props.poem.title} </h2>
+        <h3> <small>  {this.props.poem.author} </small> </h3>
+        <div id="lines">
+          <p> {lines} </p>
+        </div>
+        </div>
+        <br/>
+        <br/>
         <button onClick = {this.bookmark}> Bookmark </button>
+        <button onClick = {this.getRandomPoem}> Next </button>
       </div>
 
 

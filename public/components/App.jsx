@@ -14,6 +14,7 @@ import Discover from './Discover.jsx'
 import Profile from './Profile.jsx'
 import Poem from './Poem.jsx'
 import CreatePoem from './CreatePoem.jsx'
+import style from './styles.css'
 
 class App extends React.Component {
 
@@ -28,15 +29,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <Route exact path="/" component={Home}/>
-          <Route exact path='/discover' component={Discover}/>
-          <Route exact path ='/profile' component={Profile}/>
-          <Route path="/poem/:id" component={Poem}/>
-          <Route exact path='/createPoem' component={CreatePoem}/>
-        </div>
-      </Router>
+      <div className="topbar">
+        <Router>
+          <ul>
+            <li><a href="/auth/facebook"> Log In </a></li>
+            <li><Link to="/createPoem"> Write </Link></li>
+            <li><Link to="/discover">Discover</Link></li>
+            <li id="leftLi"><Link to="/">Home</Link></li>
+         </ul>
+        </Router>
+        <Router>
+          <div>
+            <Route exact path="/" component={Home}/>
+            <Route exact path='/discover' component={Discover}/>
+            <Route exact path ='/profile' component={Profile}/>
+            <Route path="/poem/:id" component={Poem}/>
+            <Route exact path='/createPoem' component={CreatePoem}/>
+          </div>
+        </Router>
+      </div>
 
     )
   }

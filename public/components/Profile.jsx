@@ -37,17 +37,17 @@ class Profile extends React.Component {
       console.log(bookmark);
       var poemIdLink = "/poem/" + bookmark.poemId;
       return (
-        <div>
-          <Link to={poemIdLink}>{bookmark.title}</Link>
-          <p> {bookmark.author} </p>
+        <div className="bookmarked">
+          <h5><Link to={poemIdLink}>{bookmark.title}</Link></h5>
+          <h6> {bookmark.author} </h6>
         </div>
         )
     })
 
     return (
       <div>
-        <h3> Profile </h3>
-        <p> {this.props.user.username} </p>
+        <h2> {this.props.user.username} </h2>
+        <h3> Bookmarks </h3>
         {bookmarked}
       </div>
     )
