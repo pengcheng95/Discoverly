@@ -109,6 +109,7 @@ class Profile extends React.Component {
           <textarea name="description" cols="60" rows="4" value={this.state.description} onChange={this.handleInputChange} placeholder={this.state.description}/>
           <br/>
           <button onClick={this.saveDescription}> Save </button>
+          <button onClick={this.editProfile}> Close </button>
         </ToggleDisplay>
         
         <ToggleDisplay show={!this.state.show}>

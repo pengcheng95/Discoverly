@@ -1,1 +1,1 @@
-# soloWeek
+Solo Week Project

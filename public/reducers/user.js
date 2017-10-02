@@ -1,8 +1,8 @@
 const user = (state = {
   userId: '',
-  username: 'Test',
+  username: '',
   bookmarked: [],
-  description: 'testing',
+  description: '',
   writtenPoem:[]
 }, action) => {
   switch (action.type) {
