@@ -4,7 +4,9 @@
   "description": "soloWeek Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.dist.config.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
