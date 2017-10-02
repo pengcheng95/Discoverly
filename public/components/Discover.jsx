@@ -62,12 +62,12 @@ class Discover extends React.Component {
         )
     })
     return (
-      <div className="discoverDisplay">
+      <div className="poemDisplay">
 
         <div className="poem">
         <h2> {this.props.poem.title} </h2>
         <h3> <small>  {this.props.poem.author} </small> </h3>
-        <div id="lines">
+        <div className="lines">
           <p> {lines} </p>
         </div>
         </div>

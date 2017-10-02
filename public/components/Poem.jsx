@@ -73,14 +73,20 @@ class Poem extends React.Component {
         )
     })
     return (
-      <div>
-        <h3> Poem </h3>
-
-        <h5> {this.props.poem.title} </h5>
-        <h5> {this.props.poem.author} </h5>
-        <p> {lines} </p>
-        <h5> Comments </h5>
-        <textarea name="newComment" cols="60" rows="4" value={this.state.newComment} onChange={this.newCommentChange}></textarea>
+      <div className="poemDisplay">
+        <div className="poem">
+          <h2> {this.props.poem.title} </h2>
+          <h3> <small> {this.props.poem.author} </small> </h3>
+          <div className="lines">
+            <p> {lines} </p>
+          </div>
+        </div>
+        <br/>
+        <hr/>
+        <br/>
+        <h3> Comments </h3>
+        <textarea wrap="soft" name="newComment" cols="60" rows="4" value={this.state.newComment} onChange={this.newCommentChange}></textarea>
+        <br/>
         <button onClick={this.submitComment}> Submit </button>
         {comments}
 

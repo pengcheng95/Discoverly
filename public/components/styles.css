@@ -48,11 +48,27 @@
 }
 
 .discoverDisplay h5 {
-	 margin-top:20px;
+	margin-top:20px;
   	margin-bottom:0px;
 }
 
-#lines {
+.poemDisplay hr {
+	width: 30%;
+	margin-left: 35%;
+}
+
+.poemDisplay {
+	text-align: center;
+	line-height: .8;
+}
+
+.poemDisplay button {
+	padding: 7px 16px;
+	font-size: 12px;
+	margin-right: 12px;
+}
+
+.lines {
 	padding-top: 0;
 	margin-top: 0;
 	display: inline-block; 
@@ -60,7 +76,25 @@
 }
 
 .bookmarked {
+	margin-left: 5%;
 	line-height: .5;
+	margin-bottom: 45px;
+}
+
+.profileBody {
+	padding: 5%;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.profileBody button {
+	font-size: 12px;
+	padding: 7px 16px;
+	margin-right: 12px;
+}
+
+.profileBody a {
+	text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -80,7 +114,12 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 24px;
+}
+
+hr {
+	width: 20%;
+	margin-left: 3%;
 }
 
 .displayBody button:hover {
@@ -100,6 +139,51 @@ a:hover {
 	text-decoration: underline;
 }
 
+.comment {
+	background-color: #f5fcff;
+	width: 60%;
+	margin-left: 20%;
+	text-align: left;
+	padding: 8px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	line-height: 1.4;
+}
+
+.createPoemDisplay {
+	padding: 2%;
+	padding-left: 10%;
+}
+
+.createPoemDisplay button {
+	font-size: 12px;
+	padding: 7px 16px;
+}
+
+input[type=text] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.createPoemDisplay textarea {
+    width: 60%;
+    height: 300px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+}
+
+textarea {
+	background-color: #f8f8f8;
+}
 
 
 

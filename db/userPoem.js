@@ -11,7 +11,7 @@ var uPoemSchema = mongoose.Schema({
 
 })
 
-aPoemSchema.plugin(autoIncrement.plugin, {
+uPoemSchema.plugin(autoIncrement.plugin, {
     model: 'UPoem',
     field: 'poemId',
     startAt: 0,

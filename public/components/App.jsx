@@ -15,29 +15,54 @@ import Profile from './Profile.jsx'
 import Poem from './Poem.jsx'
 import CreatePoem from './CreatePoem.jsx'
 import style from './styles.css'
+import ToggleDisplay from 'react-toggle-display'
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      show: false
       
     }
 
-    console.log(this);
+  }
+
+  componentDidMount() {
+    axios.get('/api/checkSignin')
+      .then((res) => {
+        if (res.data === 'y') {
+          this.setState({
+            show: true
+          })
+        }
+      })
   }
 
   render() {
     return (
       <div className="topbar">
-        <Router>
-          <ul>
-            <li><a href="/auth/facebook"> Log In </a></li>
-            <li><Link to="/createPoem"> Write </Link></li>
-            <li><Link to="/discover">Discover</Link></li>
-            <li id="leftLi"><Link to="/">Home</Link></li>
-         </ul>
-        </Router>
+        <ToggleDisplay show={!this.state.show}>
+          <Router>
+            <ul>
+              <li><a href="/auth/facebook"> Log In </a></li>
+              <li><Link to="/createPoem"> Write </Link></li>
+              <li><Link to="/discover">Discover</Link></li>
+              <li id="leftLi"><Link to="/">Home</Link></li>
+           </ul>
+          </Router>
+        </ToggleDisplay>
+        <ToggleDisplay if={this.state.show}>
+          <Router>
+            <ul>
+              <li><Link to="/profile"> Profile </Link></li>
+              <li><Link to="/createPoem"> Write </Link></li>
+              <li><Link to="/discover">Discover</Link></li>
+              <li id="leftLi"><Link to="/">Home</Link></li>
+           </ul>
+          </Router>
+        </ToggleDisplay>
+
         <Router>
           <div>
             <Route exact path="/" component={Home}/>

@@ -4,8 +4,10 @@ const mongoose = require('mongoose')
 var userSchema = mongoose.Schema({
 	username: String,
 	userId: String,
+	description: String,
   aPoemRead: Array,
-  bookmarked: Array
+  bookmarked: Array,
+  writtenPoem: Array,
 
 
 })

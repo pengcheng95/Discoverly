@@ -59,7 +59,8 @@ app.get('/auth/facebook/callback',
     				username: sessData.user.displayName,
 						userId: sessData.user.id,
 					  aPoemRead: [],
-					  bookmarked: []
+					  bookmarked: [],
+					  description: ''
     		})
     		newUser.save(function(err) {
     			if (err) console.error(err);

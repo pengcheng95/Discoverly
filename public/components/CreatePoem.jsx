@@ -39,18 +39,17 @@ export default class CreatePoem extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3> Create Poem </h3>
+      <div className="createPoemDisplay">
+        <h2> Create Poem </h2>
         <form>
           <label>
-            Title:
-            <br/>
+            <h4> Title: </h4>
             <input name="title" type="text" value={this.state.title} onChange={this.handleInputChange} />
             <br/>
-            Lines: 
-            <br/>
-            <textarea name="lines" cols="60" rows="4" value={this.state.lines} onChange={this.handleInputChange} />
+            <h4> Lines: </h4>
+            <textarea name="lines" cols="70" rows="16" value={this.state.lines} onChange={this.handleInputChange} />
           </label>
+          <br/>
           <br/>
           <button onClick={this.submitUserPoem}> Submit </button>
         </form>
