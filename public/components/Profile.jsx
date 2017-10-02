@@ -117,11 +117,11 @@ class Profile extends React.Component {
         <br/>
         <br/>
         <hr/>
-        <h2 style={{'bottom-margin': '50px'}}> My Poems </h2>
+        <h2 style={{'bottomMargin': '50px'}}> My Poems </h2>
         {myPoems}
         <hr/>
        
-        <h2 style={{'bottom-margin': '50px'}}> Bookmarks </h2>
+        <h2 style={{'bottomMargin': '50px'}}> Bookmarks </h2>
         {bookmarked}
       </div>
     )

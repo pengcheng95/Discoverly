@@ -46,12 +46,17 @@ class Discover extends React.Component {
     }
     axios.post('/api/addBookmark', newBookmark)
       .then((res) => {
-        var user = {
-          username: res.data.username,
-          userId: res.data.userId,
-          bookmarked: res.data.bookmarked
+        if (res.data === 'f') {
+          alert('Log in before bookmarking!');
         }
-        this.props.actions.changeUser(user);
+        else {
+          var user = {
+            username: res.data.username,
+            userId: res.data.userId,
+            bookmarked: res.data.bookmarked
+          }
+          this.props.actions.changeUser(user);
+        }
       })
   }
 

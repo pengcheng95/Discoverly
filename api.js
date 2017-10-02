@@ -32,16 +32,20 @@ router.get('/getUser', function(req, res) {
 
 router.post('/addBookmark', function(req, res) {
 	var sessData = req.session.passport;
-	Users.findOne( {userId: sessData.user.id}, function(err, user) {
-		console.log('user', user);
+	if (!sessData) {
+		res.send('f');
+	}
+	else {
+		Users.findOne( {userId: sessData.user.id}, function(err, user) {
 		var updatedBookmark = user.bookmarked;
 		updatedBookmark.push(req.body);
 		user.bookmarked = updatedBookmark;
 		user.save(function (err, updatedUser) {
 			if (err) console.error(err);
 			res.send(updatedUser);
+			})
 		})
-	})
+	}
 })
 
 router.post('/poem', function(req, res) {
@@ -75,31 +79,37 @@ router.post('/newComment', function(req, res) {
 
 router.post('/newUserPoem', function(req, res) {
 	var sessData = req.session.passport;
-	var newUserPoem = new UPoem ({
-		title: req.body.title,
-		author: sessData.user.displayName,
-		lines: req.body.lines,
-		comments: [],
-		authorId: sessData.user.id
-	})
-	newUserPoem.save(function(err) {
-		if (err) console.error(err)
-	})
-	Users.findOne( {userId: sessData.user.id}, function(err, user) {
-		var newPoem = {
+	if (!sessData) {
+		res.send('failed');
+	}
+	else {
+		var newUserPoem = new UPoem ({
 			title: req.body.title,
 			author: sessData.user.displayName,
+			lines: req.body.lines,
+			comments: [],
 			authorId: sessData.user.id
-		}
-		var newUPoemList = user.writtenPoem;
-		newUPoemList.push(newPoem);
-		user.writtenPoem = newUPoemList;
-		user.save(function(err) {
-			if (err) console.log(err)
-			res.send('f');
 		})
+		newUserPoem.save(function(err) {
+			if (err) console.error(err)
+		})
+		Users.findOne( {userId: sessData.user.id}, function(err, user) {
+			var newPoem = {
+				title: req.body.title,
+				author: sessData.user.displayName,
+				authorId: sessData.user.id
+			}
+			var newUPoemList = user.writtenPoem;
+			newUPoemList.push(newPoem);
+			user.writtenPoem = newUPoemList;
+			user.save(function(err) {
+				if (err) console.log(err)
+				res.send('f');
+			})
 
-	})
+		})
+	}
+
 })
 
 router.get('/checkSignin', function(req, res) {

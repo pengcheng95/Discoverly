@@ -32,7 +32,11 @@ export default class CreatePoem extends React.Component {
     }
     axios.post('/api/newUserPoem', newPoem)
       .then((res) => {
-        console.log(res);
+        if (res.data === 'failed') {
+          alert('Log in first before writing');
+        } else {
+          alert('Created');
+        }
       })
 
   }
