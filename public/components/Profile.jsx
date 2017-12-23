@@ -89,6 +89,7 @@ class Profile extends React.Component {
     const myPoems = this.props.user.writtenPoem.map((poem, i) => {
       console.log(poem);
       //var poemIdLink = "/poem/" + bookmark.poemId;
+      console.log('poem', poem);
       return (
         <div className="bookmarked" >
           <h3>{poem.title}</h3>
