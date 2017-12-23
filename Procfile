@@ -1,1 +1,1 @@
-web: webpack && node index.js
+web: npm install && webpack && node index.js
