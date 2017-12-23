@@ -23,7 +23,7 @@ var config = {
 			loader: 'url-loader?limit=8192' 
 		}]
 	},
-	watch: true
+	// watch: true
 }
 
 module.exports = config;
